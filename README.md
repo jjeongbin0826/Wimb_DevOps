@@ -29,6 +29,37 @@ node.js 기반 웹 제작 프로젝트
 - **Framework** : Express.js
 - **Database** : MySQL
 
+    <br/>
+
+## 🖋️ 커밋 컨벤션 -Commit Convention
+
+# Commit Convention
+
+| Type | Description |
+|------|-------------|
+| feat | 새로운 기능 추가 |
+| fix | 버그 수정 |
+| docs | 문서 수정 |
+| style | 코드 포맷팅, 세미콜론 누락 등 |
+| design | 사용자 UI 디자인 변경 |
+| test | 테스트 코드 추가/수정 |
+| refactor | 코드 리팩토링 |
+| build | 빌드 파일 수정 |
+| ci | CI/CD 설정 변경 |
+| perf | 성능 개선 |
+| chore | 자잘한 수정이나 빌드 업데이트 |
+| rename | 파일 혹은 폴더명 수정 |
+| remove | 파일 삭제 |
+
+예)
+
+[feat] 로그인 기능 구현
+
+[fix] 회원가입 유효성 검사 오류 수정
+
+[design] 메인 페이지 레이아웃 변경
+
+
 ## 📌 주요 기능
 #### 로그인 
 - DB값 검증
@@ -60,6 +91,8 @@ node.js 기반 웹 제작 프로젝트
 ### 검색
 - 제목/내용/해시태그 검색
 - 최신순/조회순/댓글순/좋아요순/북마크순 정렬
+
+
 
 ## 💻 구현 화면
 홈 페이지|게시글 페이지
