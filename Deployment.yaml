@@ -18,8 +18,8 @@ spec:
         tier: wimb
     spec:
       containers:
-      - name: hello
-        image: pjbear/hello:latest
+      - name: wimb
+        image: jjeongbin0826/wimb:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
@@ -41,3 +41,4 @@ spec:
     app: wimb
     tier: wimb
   type: LoadBalancer
+
