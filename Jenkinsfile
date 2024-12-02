@@ -1,47 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-	name: wimb
- 	labels:
- 		app: wimb
+  name: wimb
+  labels:
+    app: wimb
 spec:
-	replicas:3
-	strategy:
-		type: Recreate
-	selector:
-		matchLabels:
-			app: wimb
-	template:
-		metadata:
-			labels:
-				app: wimb
-				tier: wimb
-		spec:
-			containers:
-			- name: hello
-			image: pjbear/hello:latest
-			imagePullPolicy: Always
-			ports:
-			-containerPort: 5000
- 			name: wimb
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: wimb
+  template:
+    metadata:
+      labels:
+        app: wimb
+        tier: wimb
+    spec:
+      containers:
+      - name: hello
+        image: pjbear/hello:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: wimb
 
-----
+---
 
 apiVersion: v1
 kind: Service
 metadata:
-	name: wimb
-	labels:
-		app: wimb
+  name: wimb
+  labels:
+    app: wimb
 spec:
-	ports:
-	- port: 80
-	targetPort: 5000
-	selector:
- 		app: wimb
- 		tier: wimb
- type: LoadBalancer
-
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: wimb
+    tier: wimb
+  type: LoadBalancer
 
 
 
