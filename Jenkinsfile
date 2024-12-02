@@ -1,7 +1,8 @@
 node {
 	def app
 	stage('Clone repository') {
-		git 'https://github.com/jjeongbin0826/Wimb_DevOps'
+		git branch: 'main',
+			url: 'https://github.com/jjeongbin0826/Wimb_DevOps'
 	}
 	stage('Build image') {
 		app = docker.build("jjeongbin0826/wimb")
