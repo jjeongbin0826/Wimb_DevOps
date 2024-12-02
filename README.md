@@ -2,4 +2,4 @@
 WIMB DevOps CI/CD Pipeline by OSS-Team6
 변경사항
 
-되나?
+이번엔 진짜 될듯 ㅋㅋ
