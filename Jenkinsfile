@@ -8,7 +8,7 @@ node {
 		app = docker.build("jjeongbin0826/wimb")
 	}
 	stage('Push image') {
-		docker.withRegistry('https://registry.hub.docker.com', 'jjeongbin0826') {
+		docker.withRegistry('https://registry.hub.docker.com', 'jjeong00') {
 			app.push("${env.BUILD_NUMBER}")
 			app.push("latest")
 		}
