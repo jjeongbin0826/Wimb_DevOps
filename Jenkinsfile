@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'open-436911'
-        CLUSTER_NAME = 'wimb-kube'
-        LOCATION = 'us-central1-a'
-        CREDENTIALS_ID = '25e628d7-2697-4d33-9d87-cf999794e66c'
+        PROJECT_ID = 'sungshinserverpj'
+        CLUSTER_NAME = 'k8s'
+        LOCATION = 'asia-northeast3-a'
+        CREDENTIALS_ID = '6ce98bad-d77d-41db-bad5-4cc756dcd06d'
     }
     stages {
         stage("Checkout code") {
@@ -22,14 +22,14 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    myapp = docker.build("crolvlee/wimb_test:${env.BUILD_ID}")
+                    myapp = docker.build("jjeongbin0826/oss-wimb:${env.BUILD_ID}")
                 }
             }
         }
         stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'crolvlee') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'jjeong00') {
                         myapp.push("latest")
                         myapp.push("${env.BUILD_ID}")
                     }
@@ -41,7 +41,7 @@ pipeline {
 				branch 'main'
 			}
             steps{
-                sh "sed -i 's/wimb_test:latest/wimb_test:${env.BUILD_ID}/g' deployment.yaml"
+                sh "sed -i 's/oss-wimb:latest/oss-wimb:${env.BUILD_ID}/g' deployment.yaml"
                 step([$class: 'KubernetesEngineBuilder', 
                     projectId: env.PROJECT_ID, 
                     clusterName: env.CLUSTER_NAME, 
